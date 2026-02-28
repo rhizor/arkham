@@ -27,11 +27,42 @@
 
 ## 📦 Instalación
 
+### Requisitos Previos
+
+- Python 3.8+
+- Git
+
+### Instalación con Entorno Virtual (Recomendado)
+
+```bash
+# Clonar repositorio
+git clone https://github.com/rhizor/arkham.git
+cd arkham
+
+# Crear entorno virtual (recomendado)
+python3 -m venv venv
+
+# Activar entorno virtual
+source venv/bin/activate  # Linux/macOS
+# O en Windows:
+# venv\Scripts\activate
+
+# Instalar dependencias
+pip install requests
+
+# (Opcional) Instalar dependencias extras
+pip install colorama readline
+```
+
+### Instalación Rápida (Sin entorno virtual)
+
 ```bash
 git clone https://github.com/rhizor/arkham.git
 cd arkham
 pip install requests
 ```
+
+> ⚠️ **Nota**: Se recomienda usar un entorno virtual (`venv`) para evitar conflictos con otras dependencias del sistema.
 
 ## 🚀 Uso
 
