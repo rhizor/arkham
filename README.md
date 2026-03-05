@@ -1,109 +1,97 @@
-# 🐙 ARKHAM
+# ARKHAM - Automated Reconnaissance & Knowledge HARvesting Agent
 
-<p align="center">
-  <i>«No puedo evitar sentir que hay algo más antiguo que los propios Dioses»</i>
-  <br>— H.P. Lovecraft
-</p>
+## Project Overview
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.8+-blue.svg" alt="Python">
-  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
-</p>
+This repository contains a software component designed to support reliable and maintainable enterprise system operations. The project focuses on clear architecture, deterministic behavior, and reproducible environments to ensure consistent execution across development and operational environments.
 
-## 📖 Descripción
+The repository has been structured to support automated testing and containerized execution.
 
-**ARKHAM** (Automated Reconnaissance & Knowledge HARvesting Agent of Providence) es un asistente de IA para resolver desafíos CTF. Soporta HackTheBox, TryHackMe, picoCTF y laboratorios personalizados.
+## Architecture
 
-## ⚡ Características
+High-level architecture:
+- **Application Core:** Python-based CTF challenge management CLI
+- **Supporting Modules:** Challenge tracking, command execution, flag management
+- **Test Suite:** Pytest-based automated tests
+- **Containerized Runtime Environment:** Docker-based reproducible testing
 
-- 🎯 **Multi-plataforma**: HTB, THM, picoCTF, custom
-- 📡 **Enumeración**: Nmap, Gobuster, Nikto, SQLMap
-- 🛠️ **Explotación**: Hydra, John, Steghide, herramientas de análisis
-- 📝 **Documentación**: Guarda comandos, notas, flags
-- 🚩 **Flag Tracking**: Registra todas las flags encontradas
-- 📊 **Reporting**: Genera reportes detallados
-- 💾 **Sesiones**: Guarda y reanuda desafíos
-- 🧠 **Sugerencias**: Guía basada en categoría
+The design prioritizes modularity and maintainability, allowing the project to evolve without compromising stability.
 
-## 📦 Instalación
+## Installation
 
-### Requisitos Previos
-
-- Python 3.8+
-- Git
-
-### Instalación con Entorno Virtual (Recomendado)
-
-```bash
-# Clonar repositorio
-git clone https://github.com/rhizor/arkham.git
-cd arkham
-
-# Crear entorno virtual (recomendado)
-python3 -m venv venv
-
-# Activar entorno virtual
-source venv/bin/activate  # Linux/macOS
-# O en Windows:
-# venv\Scripts\activate
-
-# Instalar dependencias
-pip install requests
-
-# (Opcional) Instalar dependencias extras
-pip install colorama readline
-```
-
-### Instalación Rápida (Sin entorno virtual)
-
+Clone the repository:
 ```bash
 git clone https://github.com/rhizor/arkham.git
 cd arkham
-pip install requests
 ```
 
-> ⚠️ **Nota**: Se recomienda usar un entorno virtual (`venv`) para evitar conflictos con otras dependencias del sistema.
-
-## 🚀 Uso
-
+Install dependencies:
 ```bash
-# Modo interactivo
-python3 arkham.py --interactive
+pip install -r requirements.txt
 ```
 
-### Comandos Principales
+## Running the Application
 
+Example execution:
 ```bash
-start "Lab Name" --web --ip 10.10.10.5    # Iniciar desafío
-run nmap -sVC 10.10.10.5                   # Ejecutar comando
-flag HTB{flag_here}                        # Registrar flag
-note Found admin panel at /admin            # Agregar nota
-suggest                                     # Ver sugerencias
-report                                      # Generar reporte
-save                                        # Guardar sesión
-stats                                       # Ver estadísticas
+python3 main.py --interactive
 ```
 
-## 📁 Estructura
-
-```
-~/.arkham/
-├── sessions/      # Sesiones guardadas
-├── logs/         # Logs
-└── history.json  # Historial
+For help:
+```bash
+python3 main.py --help
 ```
 
-## 📖 Documentación
+## Automated Testing
 
-Ver [USAGE.md](USAGE.md) para guía completa.
+Run the automated test suite locally:
+```bash
+pytest
+```
 
-## ⚠️ Uso Ético
+The tests verify core functionality, validation logic, and error handling.
 
-> *«Las verdades que encontramos pueden seranas»*
+## Running Tests with Docker
 
-Este herramienta es para **fines educativos** en entornos CTF autorizados.
+The repository provides a reproducible Docker environment for executing tests.
 
----
+Build the container:
+```bash
+docker build -t arkham-test .
+```
 
-*«El hombre más viejo es siempre el más joven»*
-— H.P. Lovecraft
+Run tests inside the container:
+```bash
+docker run --rm arkham-test
+```
+
+This ensures the project behaves consistently across environments.
+
+## Reliability and Error Handling
+
+The project includes automated tests designed to validate:
+- Core application logic
+- Input validation
+- Error handling
+- Boundary conditions
+
+This helps ensure predictable system behavior and reduces operational risk.
+
+## AI-Assisted Development Pipeline
+
+This repository supports an automated quality pipeline using AI agents. The pipeline performs:
+- Repository analysis
+- Automated test execution
+- Stacktrace analysis
+- Automated fix generation
+- Documentation improvements
+- Pull request generation
+
+This approach enables continuous improvement of code quality.
+
+## Roadmap
+
+Future improvements may include:
+- Extended test coverage
+- Performance benchmarks
+- Integration testing
+- Improved observability
